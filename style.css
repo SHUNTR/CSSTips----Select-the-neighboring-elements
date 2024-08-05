@@ -1,0 +1,37 @@
+.row{
+    display: flex;
+    padding-top: 100px;
+    gap: 10px;
+    justify-content: center;
+}
+.item{
+    transition: .3s;
+    height: 100px;
+    position: relative;
+    width: 100%;
+    background-color: green;
+    border: 1px solid;
+    max-width: 100px;
+}
+
+.item:hover{
+    transform: scale(1.2,1.2);
+    z-index: 10;
+}
+.item:hover + *{
+    transform: scale(1.1,1.1);
+    z-index: 9;
+}
+.item:hover + * + *{
+    transform: scale(1.05,1.05);
+    z-index: 8;
+}
+
+.item:has(+ *:hover){
+    transform: scale(1.1,1.1);
+    z-index: 9;
+}
+.item:has(+ * +*:hover){
+    transform: scale(1.05,1.05);
+    z-index: 8;
+}
